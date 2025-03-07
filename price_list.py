@@ -70,7 +70,7 @@ class PriceList:
         """
         return self.pricelist.get(product, None)
 
-    def set_price(self, product, price):
+    def set_price(self, product, price, ID):
         """
         Sets the price of the specified product.
 
