@@ -1,3 +1,8 @@
+import os
+import csv
+
+from price_list import PriceList
+
 class ShoppingList:
     """
     A class to represent a shopping list.
@@ -20,6 +25,7 @@ class ShoppingList:
     """
     def __init__(self):
         self.items = {}
+        self.price_list = PriceList()
 
     def add_item(self, item, quantity=1):
         if item in self.items:
@@ -41,13 +47,29 @@ class ShoppingList:
     def get_items(self):
         return self.items
 
+    def get_total(self):
+        total = 0
+        for item, quantity in self.items.items():
+            price_data = self.price_list.get_price(item)
+            if price_data:
+                total += price_data['price'] * quantity
+            else:
+                print(f"Price for {item} not found.")
+        return total
+
+    def print_prices(self):
+        for item, quantity in self.items.items():
+            price_data = self.price_list.get_price(item)
+            if price_data:
+                print(f"{item}: {price_data['price']} x {quantity} = {price_data['price'] * quantity}")
+            else:
+                print(f"Price for {item} not found.")
+
 # Example usage:
 if __name__ == "__main__":
     shopping_list = ShoppingList()
-    shopping_list.add_item("Apples", 3)
-    shopping_list.add_item("Bananas", 2)
-    print(shopping_list.get_items())  # Output: {'Apples': 3, 'Bananas': 2}
-    shopping_list.remove_item("Apples", 1)
-    print(shopping_list.get_items())  # Output: {'Apples': 2, 'Bananas': 2}
-    shopping_list.remove_item("Bananas", 2)
-    print(shopping_list.get_items())  # Output: {'Apples': 2}
+    shopping_list.add_item("Booster", 2)
+    shopping_list.add_item("Pizza", 1)
+    shopping_list.print_prices()
+    print(f"Total: {shopping_list.get_total()}")
+
