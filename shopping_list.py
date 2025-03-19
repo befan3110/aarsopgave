@@ -40,9 +40,9 @@ class ShoppingList:
             elif self.items[item] == quantity:
                 del self.items[item]
             else:
-                print(f"Cannot remove {quantity} {item}(s), only {self.items[item]} available.")
+                print(f"kan ikke fjerne {quantity} {item}(s), kun {self.items[item]} er tilgængelig.")
         else:
-            print(f"{item} not found in the shopping list.")
+            print(f"{item} ikke fundet i shopping listen.")
 
     def get_items(self):
         return self.items
@@ -54,7 +54,7 @@ class ShoppingList:
             if price_data:
                 total += price_data['price'] * quantity
             else:
-                print(f"Price for {item} not found.")
+                print(f"Pris for {item} ikke fundet.")
         return total
 
     def print_prices(self):
@@ -63,7 +63,7 @@ class ShoppingList:
             if price_data:
                 print(f"{item}: {price_data['price']} x {quantity} = {price_data['price'] * quantity}")
             else:
-                print(f"Price for {item} not found.")
+                print(f"Pris for {item} ikke fundet.")
 
 # Example usage:
 if __name__ == "__main__":
@@ -71,5 +71,7 @@ if __name__ == "__main__":
     shopping_list.add_item("Booster", 2)
     shopping_list.add_item("Pizza", 1)
     shopping_list.print_prices()
-    print(f"Total: {shopping_list.get_total()}")
+    print(f"dine varer koster i alt: {shopping_list.get_total()}")
+
+
 
