@@ -1,4 +1,4 @@
-from shopping_list import ShoppingList
+from shoppinglistopgaven.shopping_list import ShoppingList
 
 
 shopping_list = ShoppingList()

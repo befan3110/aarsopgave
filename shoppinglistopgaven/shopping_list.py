@@ -1,7 +1,7 @@
 import os
 import csv
 
-from price_list import PriceList
+from shoppinglistopgaven.price_list import PriceList
 
 class ShoppingList:
     """
