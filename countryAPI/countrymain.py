@@ -1,4 +1,7 @@
 import requests
+import IPython
+url = 'https://newevolutiondesigns.com/images/freebies/colorful-background-14.jpg'
+IPython.display.Image(url, width = 250)
 
 def get_data():
     # Fetch all data from the API
@@ -17,12 +20,17 @@ def display_country(country):
     # Display details of a single country
     name = country.get('name', {}).get('common', 'Unknown')
     capital = country.get('capital', ['Unknown'])[0]
-    flag = country.get('flags', {}).get('emoji', '🏳️')
+    flag = country.get('flags', {}).get('png', 'No flag available')  # Use PNG URL for the flag
     languages = ', '.join(country.get('languages', {}).values()) or 'Unknown'
 
     print(f"Name: {name}")
     print(f"Capital: {capital}")
-    print(f"Flag: {flag}")
+    print(f"Flag URL: {flag}")  # Display the flag URL as text
+    try:
+        from IPython.display import Image, display
+        display(Image(url=flag, width=250))  # Display the flag image
+    except ImportError:
+        print("IPython is not available. Cannot display the flag image.")
     print(f"Languages: {languages}")
     print("-" * 40)
 
@@ -61,7 +69,7 @@ def ui():
             capital_name = input("Enter the capital name: ").lower()
             matching_countries = [
                 country for country in countries
-                if capital_name in (country.get('capital', [''])[0].lower())
+                if capital_name in (country.get('capital', ['Unknown'])[0].lower() if country.get('capital') else '')
             ]
 
             if matching_countries:
