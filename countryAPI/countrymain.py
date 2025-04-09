@@ -27,6 +27,8 @@ def display_country(country):
         if flag:
             from IPython.display import Image, display
             display(Image(url=flag, width=250))  # Display the flag image
+            print(flag)
+            print("open this link to view flag")
         else:
             print("No flag available.")
     except ImportError:

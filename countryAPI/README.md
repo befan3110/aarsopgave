@@ -28,13 +28,13 @@ Vores program henter data fra et eksternt API, der leverer information om forske
 
 ## Kravspecifikation
 
-| titel          | beskrivelse                                                                                  | prioritet      |
-| -------------- | -------------------------------------------------------------------------------------------- | -------------- |
-| **Menu**       | En overskuelig menu, der giver brugeren flere muligheder for at navigere mellem funktioner.  | need-to-have   |
-| **Søgning**    | En søgefunktion, der gør det muligt at finde lande baseret på navn eller anden nøgleinformation. | need-to-have   |
-| **Visning**    | En overskuelig præsentation af landeoplysninger (flag, hovedstad, sprog, etc.).             | need-to-have   |
-| **Sortering**  | Mulighed for at sortere resultater efter forskellige kriterier (f.eks. navn, region).        | nice-to-have   |
-| **Splashscreen** | En kort introduktionsskærm, der vises ved programmets opstart.                               | nice-to-have   |
+| Titel          | Beskrivelse                                                                                  | Prioritet      | Progress |
+| -------------- | -------------------------------------------------------------------------------------------- | -------------- | -------- |
+| **Menu**       | En overskuelig menu, der giver brugeren flere muligheder for at navigere mellem funktioner.  | Need-to-have   | Done   |
+| **Søgning**    | En søgefunktion, der gør det muligt at finde lande baseret på navn eller anden nøgleinformation. | Need-to-have   | Done   |
+| **Visning**    | En overskuelig præsentation af landeoplysninger (flag, hovedstad, sprog, etc.).             | Need-to-have   | Part-way   |
+| **Sortering**  | Mulighed for at sortere resultater efter forskellige kriterier (f.eks. navn, region).        | Nice-to-have   | Part-way   |
+| **Splashscreen** | En kort introduktionsskærm, der vises ved programmets opstart.                               | Nice-to-have   | Done   |
 
 ---
 
