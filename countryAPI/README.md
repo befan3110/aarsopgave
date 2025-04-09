@@ -30,11 +30,11 @@ Vores program henter data fra et eksternt API, der leverer information om forske
 
 | titel          | beskrivelse                                                                                  | prioritet      |
 | -------------- | -------------------------------------------------------------------------------------------- | -------------- |
-| **menu**       | En overskuelig menu, der giver brugeren flere muligheder for at navigere mellem funktioner.  | need-to-have   |
-| **søgning**    | En søgefunktion, der gør det muligt at finde lande baseret på navn eller anden nøgleinformation. | need-to-have   |
-| **visning**    | En overskuelig præsentation af landeoplysninger (flag, hovedstad, sprog, etc.).             | need-to-have   |
-| **sortering**  | Mulighed for at sortere resultater efter forskellige kriterier (f.eks. navn, region).        | nice-to-have   |
-| **splashscreen** | En kort introduktionsskærm, der vises ved programmets opstart.                               | nice-to-have   |
+| **Menu**       | En overskuelig menu, der giver brugeren flere muligheder for at navigere mellem funktioner.  | need-to-have   |
+| **Søgning**    | En søgefunktion, der gør det muligt at finde lande baseret på navn eller anden nøgleinformation. | need-to-have   |
+| **Visning**    | En overskuelig præsentation af landeoplysninger (flag, hovedstad, sprog, etc.).             | need-to-have   |
+| **Sortering**  | Mulighed for at sortere resultater efter forskellige kriterier (f.eks. navn, region).        | nice-to-have   |
+| **Splashscreen** | En kort introduktionsskærm, der vises ved programmets opstart.                               | nice-to-have   |
 
 ---
 
