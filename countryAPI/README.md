@@ -51,6 +51,12 @@ Vores program henter data fra et eksternt API, der leverer information om forske
 
 ---
 
+## Brug af AI
+
+- til fremstilling af markdown tabel
+
+---
+
 ## Test af programmet
 
 fremtidig test indebærer at sætte en klassekammerat eller lignende der er uvidende om vores program og derefter teste om de kan succesfuldt navigere igennem

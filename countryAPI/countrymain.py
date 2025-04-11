@@ -3,7 +3,7 @@ import requests
 def get_data():
     # Henter data fra API
     url = "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages"
-    headers = {'Accept': 'application/json'}
+    headers = {"Accept": "application/json"}
     try:
         response = requests.get(url, headers=headers)
         response.raise_for_status()  # Viser fejl ved dårlig statuskode
