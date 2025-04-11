@@ -1,12 +1,12 @@
 import requests
 
 def get_data():
-    # Fetch all data from the API
+    # Henter data fra API
     url = "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages"
     headers = {'Accept': 'application/json'}
     try:
         response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raise an error for bad status codes
+        response.raise_for_status()  # Viser fejl ved dårlig statuskode
         countries = response.json()
         return countries
     except requests.exceptions.RequestException as e:
@@ -14,10 +14,10 @@ def get_data():
         return []
 
 def display_country(country):
-    # Display details of a single country
+    # Vis detaljer for et enkelt land
     name = country.get('name', {}).get('common', 'Unknown')
     capital = country.get('capital', ['Unknown'])[0]
-    flag = country.get('flags', {}).get('png', None)  # Use PNG URL for the flag
+    flag = country.get('flags', {}).get('png', None)  # Bruger PNG URL for flaget
     languages = ', '.join(country.get('languages', {}).values()) or 'Unknown'
 
     print(f"Name: {name}")
@@ -26,7 +26,7 @@ def display_country(country):
     try:
         if flag:
             from IPython.display import Image, display
-            display(Image(url=flag, width=250))  # Display the flag image
+            display(Image(url=flag, width=250))  # Viser billede af flag
             print(flag)
             print("open this link to view flag")
         else:
@@ -36,7 +36,7 @@ def display_country(country):
     print("-" * 40)
 
 def ui():
-    # Function to search for countries and get user input
+    # Funktion for at søge efter land med user input
     countries = get_data()
 
     if not countries:
