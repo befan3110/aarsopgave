@@ -87,7 +87,11 @@ def ui():
             currency_name = input("Enter the currency name: ").lower()
             matching_countries = [
                 country for country in countries
-                if 'currencies' in country and any(currency_name in currency.get('name', '').lower() for currency in country['currencies'].values())
+                if 'currencies' in country and any(
+                    currency_name in currency.get('name', '').lower() or
+                    currency_name in currency.get('symbol', '').lower()
+                    for currency in country['currencies'].values()
+                )
             ]
 
             if matching_countries:
