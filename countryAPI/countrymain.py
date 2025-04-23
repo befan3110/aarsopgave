@@ -21,12 +21,20 @@ def debug_api_response(countries):
         print("-" * 40)
 
 def display_country(country):
-    # Vis detaljer for et enkelt land baseret på søgeparametre
+    # Display details for a single country
     name = country.get('name', {}).get('common', 'Unknown')
     capital = country.get('capital', ['Unknown'])[0]
-    flag = country.get('flags', {}).get('png', None)  # Bruger PNG URL for flaget
+    flag = country.get('flags', {}).get('png', None)  # Use PNG URL for the flag
     languages = ', '.join(country.get('languages', {}).values()) or 'Unknown'
-    currency = ', '.join([f"{cur.get('name', 'Unknown')} ({cur.get('symbol', 'Unknown')})" for cur in country.get('currencies', {}).values()]) or 'Unknown'
+    
+    # Handle currencies field
+    currencies = country.get('currencies', {})
+    if currencies:
+        currency = ', '.join([f"{code}: {cur.get('name', 'Unknown')} ({cur.get('symbol', 'Unknown')})"
+                              for code, cur in currencies.items()])
+    else:
+        currency = 'Unknown'
+
     print(f"Name: {name}")
     print(f"Capital: {capital}")
     print(f"Languages: {languages}")
@@ -34,9 +42,7 @@ def display_country(country):
     try:
         if flag:
             from IPython.display import Image, display
-            display(Image(url=flag, width=250))  # Viser billede af flag
-            print(flag)
-            print("open this link to view flag")
+            display(Image(url=flag, width=250))  # Display the flag image
         else:
             print("No flag available.")
     except ImportError:
@@ -92,12 +98,12 @@ def ui():
                 print("No countries found with that capital.")
 
         elif choice == "3":
-            currency_name = input("Enter the currency name: ")
+            currency_name = input("Enter the currency name or symbol: ").lower()
             matching_countries = [
                 country for country in countries
                 if 'currencies' in country and any(
-                    (currency.get('name') and currency_name in currency.get('name', '').lower()) or
-                    (currency.get('symbol') and currency_name in currency.get('symbol', '').lower())
+                    currency_name in (currency.get('name', '').lower() or '') or
+                    currency_name in (currency.get('symbol', '').lower() or '')
                     for currency in country['currencies'].values()
                 )
             ]
