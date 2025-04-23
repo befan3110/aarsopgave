@@ -2,7 +2,7 @@ import requests
 
 def get_data():
     # Henter data fra API
-    url = "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages"
+    url = "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,currencies"
     headers = {"Accept": "application/json"}
     try:
         response = requests.get(url, headers=headers)
@@ -19,6 +19,7 @@ def display_country(country):
     capital = country.get('capital', ['Unknown'])[0]
     flag = country.get('flags', {}).get('png', None)  # Bruger PNG URL for flaget
     languages = ', '.join(country.get('languages', {}).values()) or 'Unknown'
+    currency = country.get('currencies', {}).get('name', 'symbol')
 
     print(f"Name: {name}")
     print(f"Capital: {capital}")
@@ -49,7 +50,8 @@ def ui():
         print("\nCommands:")
         print("1 - Search for a country by name")
         print("2 - Search for a country by capital")
-        print("3 - Exit")
+        print("3 - search for a country by currency")
+        print("4 - Exit")
 
         choice = input("Enter your number: ")
         if choice == "1":
@@ -81,6 +83,20 @@ def ui():
                 print("No countries found with that capital.")
 
         elif choice == "3":
+            currency_name = input("Enter the currency name: ").lower()
+            matching_countries = [
+                country for country in countries
+                if any(currency_name in currency.get('name', '').lower() for currency in country.get('currencies', {}).values())
+            ]
+
+            if matching_countries:
+                print("\nMatching countries:")
+                for country in matching_countries:
+                    display_country(country)
+            else:
+                print("No countries found with that currency.")
+
+        elif choice == "4":
             print("Goodbye!")
             break
         else:
