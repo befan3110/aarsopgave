@@ -14,12 +14,13 @@ def get_data():
         return []
 
 def display_country(country):
-    # Vis detaljer for et enkelt land
+    # Vis detaljer for et enkelt land baseret på søgeparametre
     name = country.get('name', {}).get('common', 'Unknown')
     capital = country.get('capital', ['Unknown'])[0]
     flag = country.get('flags', {}).get('png', None)  # Bruger PNG URL for flaget
     languages = ', '.join(country.get('languages', {}).values()) or 'Unknown'
-    currency = country.get('currencies', {}).get('name', 'symbol')
+    currency = ', '.join([f"{cur.get('name', 'Unknown')} ({cur.get('symbol', 'Unknown')})" for cur in country.get('currencies', {}).values()]) or 'Unknown'
+    print(f"Currency: {currency}")
 
     print(f"Name: {name}")
     print(f"Capital: {capital}")
