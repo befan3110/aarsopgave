@@ -13,6 +13,13 @@ def get_data():
         print(f"Failed to retrieve data: {e}")
         return []
 
+def debug_api_response(countries):
+    # Print the structure of the currencies field for debugging
+    for country in countries[:5]:  # Limit to the first 5 countries for brevity
+        print(f"Country: {country.get('name', {}).get('common', 'Unknown')}")
+        print(f"Currencies: {country.get('currencies', 'No currencies field')}")
+        print("-" * 40)
+
 def display_country(country):
     # Vis detaljer for et enkelt land baseret på søgeparametre
     name = country.get('name', {}).get('common', 'Unknown')
@@ -20,11 +27,10 @@ def display_country(country):
     flag = country.get('flags', {}).get('png', None)  # Bruger PNG URL for flaget
     languages = ', '.join(country.get('languages', {}).values()) or 'Unknown'
     currency = ', '.join([f"{cur.get('name', 'Unknown')} ({cur.get('symbol', 'Unknown')})" for cur in country.get('currencies', {}).values()]) or 'Unknown'
-    print(f"Currency: {currency}")
-
     print(f"Name: {name}")
     print(f"Capital: {capital}")
     print(f"Languages: {languages}")
+    print(f"Currency: {currency}")
     try:
         if flag:
             from IPython.display import Image, display
@@ -38,12 +44,14 @@ def display_country(country):
     print("-" * 40)
 
 def ui():
-    # Funktion for at søge efter land med user input
+    # funktion for at søge efter lande
     countries = get_data()
 
     if not countries:
         print("No country data available. Exiting program.")
         return
+
+    debug_api_response(countries)
 
     print("Welcome! This is a collection of different countries!")
 
@@ -84,12 +92,12 @@ def ui():
                 print("No countries found with that capital.")
 
         elif choice == "3":
-            currency_name = input("Enter the currency name: ").lower()
+            currency_name = input("Enter the currency name: ")
             matching_countries = [
                 country for country in countries
                 if 'currencies' in country and any(
-                    currency_name in currency.get('name', '').lower() or
-                    currency_name in currency.get('symbol', '').lower()
+                    (currency.get('name') and currency_name in currency.get('name', '').lower()) or
+                    (currency.get('symbol') and currency_name in currency.get('symbol', '').lower())
                     for currency in country['currencies'].values()
                 )
             ]
