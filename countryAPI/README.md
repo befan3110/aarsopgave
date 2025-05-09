@@ -69,6 +69,8 @@ fremtidig test indebærer at sætte en klassekammerat eller lignende der er uvid
 
 ## Konklusion
 
+Vores formål var at opnå et velformuleret datavisningsværktøj, det blev lavet til at formulere data om verdens lande til en lettere overskuelig måde for vores brugere. Vores optimale brugere ville være nogle nysgerrige folk eller elever der skal bruge den geografiske og samfundsmæssige viden. Vi føler ud fra vores program at vi opfylder vores problemstilling. Dog så kunne vores brugerflade være pænere og mere responsiv.
+
 ---
 
 ## Bilag
