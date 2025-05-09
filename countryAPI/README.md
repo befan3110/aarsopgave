@@ -42,6 +42,8 @@ Vores program henter data fra et eksternt API, der leverer information om forske
 
 - **Wireframes/Prototyper:** Simpelt layout, hvor brugeren præsenteres for flere søgemuligheder og en en "exit-knap" og herefter får muligheden for at søge.
 
+![image](flowchart.jpg)
+
 ---
 
 ## Kilder og ressourcer
