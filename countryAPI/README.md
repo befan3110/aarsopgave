@@ -32,8 +32,8 @@ Vores program henter data fra et eksternt API, der leverer information om forske
 | -------------- | -------------------------------------------------------------------------------------------- | -------------- | -------- |
 | **Menu**       | En overskuelig menu, der giver brugeren flere muligheder for at navigere mellem funktioner.  | Need-to-have   | Done   |
 | **Søgning**    | En søgefunktion, der gør det muligt at finde lande baseret på navn eller anden nøgleinformation. | Need-to-have   | Done   |
-| **Visning**    | En overskuelig præsentation af landeoplysninger (flag, hovedstad, sprog, etc.).             | Need-to-have   | Part-way   |
-| **Sortering**  | Mulighed for at sortere resultater efter forskellige kriterier (f.eks. navn, region).        | Nice-to-have   | Part-way   |
+| **Visning**    | En overskuelig præsentation af landeoplysninger (flag, hovedstad, sprog, etc.).             | Need-to-have   | Done   |
+| **Sortering**  | Mulighed for at sortere resultater efter forskellige kriterier (f.eks. navn, currency).        | Nice-to-have   | Done   |
 | **Splashscreen** | En kort introduktionsskærm, der vises ved programmets opstart.                               | Nice-to-have   | Done   |
 
 ---
@@ -48,6 +48,8 @@ Vores program henter data fra et eksternt API, der leverer information om forske
 
 - restful api
 - https://www.markdownguide.org/basic-syntax/
+- https://www.w3schools.com/python/python_dictionaries.asp
+- https://www.geeksforgeeks.org/python-dictionary/
 
 ---
 
@@ -60,6 +62,8 @@ Vores program henter data fra et eksternt API, der leverer information om forske
 ## Test af programmet
 
 fremtidig test indebærer at sætte en klassekammerat eller lignende der er uvidende om vores program og derefter teste om de kan succesfuldt navigere igennem
+
+- succes!
 
 ---
 
